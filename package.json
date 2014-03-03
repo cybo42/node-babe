@@ -1,0 +1,32 @@
+{
+  "name": "babe",
+  "version": "0.0.0",
+  "description": "Manager for bunyan logger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cybo42/node-babe"
+  },
+  "keywords": [
+    "logging",
+    "log",
+    "logger",
+    "bunyan"
+  ],
+  "author": "Joe Cyboski <cybo42@gmail.com>",
+  "author": {
+    "name": "Joe Cyboski",
+    "email": "cybo42@gmail.com>",
+    "url": "http://cybo42.com"
+  },
+  "contributors": [
+    "Joe Cyboski <cybo42@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cybo42/node-babe/issues"
+  }
+}
