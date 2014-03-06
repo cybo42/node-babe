@@ -4,7 +4,7 @@
   "description": "Manager for bunyan logger",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,6 @@
     "logger",
     "bunyan"
   ],
-  "author": "Joe Cyboski <cybo42@gmail.com>",
   "author": {
     "name": "Joe Cyboski",
     "email": "cybo42@gmail.com>",
@@ -28,5 +27,19 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cybo42/node-babe/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-release": "~0.6.0",
+    "grunt-contrib-jshint": "~0.7.1",
+    "grunt-cli": "~0.1.10",
+    "grunt-jasmine-node": "~0.1.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "bunyan": "~0.22.1",
+    "jshint-stylish": "~0.1.5"
+  },
+  "peerDependencies": {
+    "bunyan": "~0.22.1"
   }
 }
