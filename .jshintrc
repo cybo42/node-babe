@@ -14,7 +14,7 @@
   "noempty"      : true,
   "nonew"        : true,
   "trailing"     : true,
-  "maxcomplexity": 6,
+  "maxcomplexity": 5,
   "globals" : {
     "it"         : false,
     "jasmine"    : false,
