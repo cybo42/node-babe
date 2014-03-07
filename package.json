@@ -2,7 +2,7 @@
   "name": "babe",
   "version": "0.0.0",
   "description": "Manager for bunyan logger",
-  "main": "index.js",
+  "main": "lib/babe.js",
   "scripts": {
     "test": "grunt test"
   },

@@ -3,7 +3,7 @@ describe("babe tests", function () {
     'use strict';
     var ASYNC_TIMEOUT = 1000;
 
-    var babePath = '../lib/babe';
+    var babePath = '../';
     var babe = require(babePath);
 
     function CaptureStream(messages){
