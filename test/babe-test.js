@@ -88,31 +88,95 @@ describe("babe tests", function () {
 //            expect(logger2.streams[0].stream).toEqual(process.stdout);
 //        });
 
-        xit("should fail if invalid level is specified", function(){
-            throw new Error("Not implemented");
+        it("should fail if invalid level is specified to getLogger()", function(){
+            var err = new Error('invalid level: badLevel');
+            expect(function () {
+                babe.getLogger("badLogger", "badLevel");
+            }).toThrow(err);
         });
 
-        xit("should be able to add named stream", function(){
-            throw new Error("Not implemented");
+        it("should fail if invalid level is specified to setLogLevel()", function(){
+            var err = new Error('invalid level: badLevel');
+            expect(function () {
+                babe.setLogLevel("badLevel");
+            }).toThrow(err);
         });
 
-        xit("should get logger with named stream", function(){
-            throw new Error("Not implemented");
+    });
+
+    describe("stream tests", function(){
+
+        it("should be able to add named stream", function(){
+            babe.addStream("myStream", process.stderr);
+
+            expect(babe.getStreamInfo().length).toEqual(2);
+            var myStream = babe.getStreamInfo().filter(function(st){return "myStream" === st.name;});
+            expect(myStream.length).toEqual(1);
+            expect(myStream[0].stream).toEqual(process.stderr);
         });
 
-        xit("should get logger by passing level and raw stream", function(){
-            throw new Error("Not implemented");
+        it("should get logger with named stream", function(){
+            babe.addStream("myStream", process.stderr);
+            var logger = babe.getLogger("testLogger", "info", "myStream");
+
+            expect(logger).toBeDefined();
+            expect(logger.streams.length).toEqual(1);
+            expect(logger.streams[0].stream).toEqual(process.stderr);
         });
 
-        xit("should be able ot reset default log level", function(){
-            throw new Error("Not implemented");
+        it("should get logger by passing level and simple stream object", function(){
+            var logger = babe.getLogger("testLogger", "info", process.stderr);
+
+            expect(logger).toBeDefined();
+            expect(logger.streams.length).toEqual(1);
+            expect(logger.streams[0].stream).toEqual(process.stderr);
+        });
+
+        it("should get logger by passing level and complex stream object", function(){
+            var logger = babe.getLogger("testLogger", "info", {stream: process.stderr});
+
+            expect(logger).toBeDefined();
+            expect(logger.streams.length).toEqual(1);
+            expect(logger.streams[0].stream).toEqual({stream: process.stderr});
+        });
+
+        it("should get logger with named complex stream object", function(){
+            babe.addStream("myStream", {stream: process.stderr});
+            var logger = babe.getLogger("testLogger", "info", "myStream");
+
+            expect(logger).toBeDefined();
+            expect(logger.streams.length).toEqual(1);
+            expect(logger.streams[0].stream).toEqual({stream: process.stderr});
+        });
+
+        it("should get logger with multiple named stream", function(){
+            babe.addStream("multiStream", [{stream: process.stdout}, {stream: process.stderr}]);
+            var logger = babe.getLogger("testLogger", "info", "multiStream");
+
+            expect(logger).toBeDefined();
+            expect(logger.streams.length).toEqual(2);
+            expect(logger.streams[0].stream).toEqual(process.stdout);
+            expect(logger.streams[1].stream).toEqual(process.stderr);
+        });
+
+        it("should get logger by passing level multiple complex streams", function(){
+            var logger = babe.getLogger("testLogger", "info", [{stream: process.stdout}, {stream: process.stderr}]);
+
+            expect(logger).toBeDefined();
+            expect(logger.streams.length).toEqual(2);
+            expect(logger.streams[0].stream).toEqual(process.stdout);
+            expect(logger.streams[1].stream).toEqual(process.stderr);
         });
 
         xit("should be able to reset default stream", function(){
             throw new Error("Not implemented");
         });
 
-        xit("should be able to specify multiple streams", function(){
+    });
+
+    describe("log level tests", function(){
+
+        xit("should be able ot reset default log level", function(){
             throw new Error("Not implemented");
         });
 
