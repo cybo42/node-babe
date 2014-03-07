@@ -104,7 +104,7 @@ describe("babe tests", function () {
 
     });
 
-    describe("stream tests", function(){
+    describe("stream declaration tests", function(){
 
         it("should be able to add named stream", function(){
             babe.addStream("myStream", process.stderr);
